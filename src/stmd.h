@@ -1,9 +1,16 @@
+#ifndef STMD_H
+#define STMD_H
+
 #include <stdbool.h>
 #include "bstrlib.h"
 #include "uthash.h"
 
 #define VERSION "0.1"
 #define CODE_INDENT 4
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 typedef struct Inline {
   enum { str, softbreak, linebreak, code, raw_html, entity,
@@ -119,3 +126,8 @@ int inlines_to_html(inl* b, bstring* result);
 
 int bdetab(bstring s, int utf8);
 
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* STMD_H */
